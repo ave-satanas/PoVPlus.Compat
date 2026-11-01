@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <AssemblyName>PoVPlus.Compat</AssemblyName>
+    <RootNamespace>PoVPlus.Compat</RootNamespace>
+    <LangVersion>7.3</LangVersion>
+    <AutomaticallyUseReferenceAssemblyPackages>false</AutomaticallyUseReferenceAssemblyPackages>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GameManaged Condition="'$(GameManaged)' == ''">G:\STEAM\steamapps\common\Valheim\valheim_Data\Managed</GameManaged>
+    <Profile Condition="'$(Profile)' == ''">$(APPDATA)\com.kesomannen.gale\valheim\profiles\PoVPlus\BepInEx</Profile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="$(Profile)\core\BepInEx.dll" Private="false" />
+    <Reference Include="$(Profile)\core\0Harmony.dll" Private="false" />
+    <Reference Include="$(Profile)\plugins\RandyKnapp-EpicLoot\EpicLoot.dll" Private="false" />
+    <Reference Include="$(Profile)\plugins\seneaL-SeneaL_API\SeneaL-API\SeneaL-API.dll" Private="false" />
+    <Reference Include="$(GameManaged)\assembly_valheim.dll" Private="false" />
+    <Reference Include="$(GameManaged)\assembly_utils.dll" Private="false" />
+    <Reference Include="$(GameManaged)\UnityEngine.dll" Private="false" />
+    <Reference Include="$(GameManaged)\UnityEngine.CoreModule.dll" Private="false" />
+    <Reference Include="$(GameManaged)\UnityEngine.InputLegacyModule.dll" Private="false" />
+    <Reference Include="$(GameManaged)\UnityEngine.UI.dll" Private="false" />
+    <Reference Include="$(GameManaged)\UnityEngine.UIModule.dll" Private="false" />
+  </ItemGroup>
+</Project>
