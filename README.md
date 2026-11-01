@@ -61,13 +61,18 @@ If `../dist` exists, skip the `mkdir`. Raise `version_number` in `package/manife
 
 ## Comparing a build
 
-The file hash embeds the build path, so a rebuild elsewhere will not match the release hash. Compare method bodies with PowerShell 7:
+The file hash embeds the build path, so a rebuild elsewhere will not match the release hash. Compare the managed image with PowerShell 7. In a git clone, the SDK stamps the commit into the version string, so turn that off:
 
 ```
+dotnet build PoVPlus.Compat.csproj -c Release -o build -p:GameManaged=<path> -p:Profile=<path> -p:IncludeSourceRevisionInInformationalVersion=false
 pwsh -File tools/il-digest.ps1 -Path build/PoVPlus.Compat.dll
 ```
 
-The tested release gives 124 method bodies, 37 types and IL SHA-256 `1DC63390417AF3FA3B0626A8DBE6BFDA221EE0CB70BB65AAC29195374B20DF1D`. A match needs the same referenced assemblies and a similar compiler, so a mismatch needs investigating but does not by itself prove different source. The exact tested DLL is in the review package linked above, not in this repository.
+The tested release gives 124 method bodies, 37 types and Image SHA-256 `F2B5F7F0ECC30338D23C091EBFC1ADC4106119FC8470324C4154F4F02016CC29`. That digest covers IL, exception handlers, strings, signatures, attributes and references. It excludes the module ID, PE headers and debug data, which vary between builds.
+
+IL SHA-256 `1DC63390417AF3FA3B0626A8DBE6BFDA221EE0CB70BB65AAC29195374B20DF1D` is method instructions only, and does not see a changed string. Do not treat it as proof of equivalence. `tools/il-digest.test.ps1` shows the difference.
+
+A match needs the same referenced assemblies and a similar compiler, so a mismatch needs investigating but does not by itself prove different source. A match shows the same managed content, not that the rebuild is byte-identical. The exact tested DLL is in the review package linked above, not in this repository.
 
 ## Known limitations
 
