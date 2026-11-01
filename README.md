@@ -4,7 +4,7 @@ One BepInEx plugin with compatibility fixes for the PoVPlus Valheim pack. No gam
 
 This fixes specific demonstrated conflicts. It does not make the pack fully compatible.
 
-**Evidence and audit guide:** [AUDIT.md at the pinned commit](https://github.com/ave-satanas/PoVPlus.Review/blob/cb378b8c0cbe138d2af3a712563e669bffc1f23a/AUDIT.md). The latest version, which may move, is on [`main`](https://github.com/ave-satanas/PoVPlus.Review).
+**Evidence and audit guide:** [AUDIT.md at the pinned commit](https://github.com/ave-satanas/PoVPlus.Review/blob/bc8772fc1e3db3cf9a03591364e31e70bcfb0335/AUDIT.md). The latest version, which may move, is on [`main`](https://github.com/ave-satanas/PoVPlus.Review).
 
 **Tested source:** the 1.0.1 release was built from the source at commit [`eed8d74`](https://github.com/ave-satanas/PoVPlus.Compat/tree/eed8d74b3700a044eb9dbce7053fe0ec2018ca69). Later commits change documentation and tools only. Check with `git diff eed8d74 HEAD -- "*.cs" "*.csproj"`.
 
