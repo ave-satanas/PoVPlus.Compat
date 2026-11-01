@@ -4,7 +4,7 @@ One BepInEx plugin with compatibility fixes for the PoVPlus Valheim pack. No gam
 
 This fixes specific demonstrated conflicts. It does not make the pack fully compatible.
 
-**Evidence and audit guide:** [AUDIT.md at the pinned commit](https://github.com/ave-satanas/PoVPlus.Knowledge/blob/c70d0939af253d15da9f4a79f33dde7c77d4c198/AUDIT.md). The latest version, which may move, is on [`main`](https://github.com/ave-satanas/PoVPlus.Knowledge).
+**Evidence and audit guide:** [AUDIT.md at the pinned commit](https://github.com/ave-satanas/PoVPlus.Review/blob/de91424976d2c397124e94a9805ea7089ad240a7/AUDIT.md). The latest version, which may move, is on [`main`](https://github.com/ave-satanas/PoVPlus.Review).
 
 **Tested source:** the 1.0.1 release was built from the source at commit [`eed8d74`](https://github.com/ave-satanas/PoVPlus.Compat/tree/eed8d74b3700a044eb9dbce7053fe0ec2018ca69). Later commits change documentation and tools only. Check with `git diff eed8d74 HEAD -- "*.cs" "*.csproj"`.
 
@@ -67,7 +67,7 @@ The file hash embeds the build path, so a rebuild elsewhere will not match the r
 pwsh -File tools/il-digest.ps1 -Path build/PoVPlus.Compat.dll
 ```
 
-The tested release gives 124 method bodies, 37 types and IL SHA-256 `1DC63390417AF3FA3B0626A8DBE6BFDA221EE0CB70BB65AAC29195374B20DF1D`. A match needs the same referenced assemblies and a similar compiler, so a mismatch needs investigating but does not by itself prove different source. The release DLL is not in this repository.
+The tested release gives 124 method bodies, 37 types and IL SHA-256 `1DC63390417AF3FA3B0626A8DBE6BFDA221EE0CB70BB65AAC29195374B20DF1D`. A match needs the same referenced assemblies and a similar compiler, so a mismatch needs investigating but does not by itself prove different source. The exact tested DLL is in the review package linked above, not in this repository.
 
 ## Known limitations
 
